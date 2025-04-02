@@ -1,4 +1,4 @@
-$WindowsVersion = '24H2'
+$WindowsVersion = '24H2 x64'
 # OSDCloud Params
 $Params = @{
   OSVersion = "Windows 11"
