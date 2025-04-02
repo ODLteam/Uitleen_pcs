@@ -11,6 +11,7 @@ $Global:MyOSDCloud = [ordered]@{
   Restart = [bool]$false
   SplashScreen = [bool]$true
   BuildName = [string]'VDAB CC Uitleentoestel'
+  SkipOOBEDeploy = [bool]$true
 }
 
 #Launch OSDCloud
