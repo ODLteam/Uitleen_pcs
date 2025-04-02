@@ -1,12 +1,9 @@
-$WindowsVersion = '24H2 x64'
 # OSDCloud Params
-$Params = @{
-  OSVersion = "Windows 11"
-  OSBuild = "$WindowsVersion"
-  OSEdition = "Enterprise"
-  OSLanguage = "nl-nl"
-  OSActivation = "Volume"
-}
+$OSName = 'Windows 11 24H2 x64'
+$OSEdition = 'Enterprise'
+$OSActivation = 'Volume'
+$OSLanguage = 'nl-nl'
+
 # OSDCloud Vars
 $Global:MyOSDCloud = [ordered]@{
   ClearDiskConfirm = [bool]$false
@@ -15,7 +12,11 @@ $Global:MyOSDCloud = [ordered]@{
   SplashScreen = [bool]$true
   BuildName = [string]'VDAB CC Uitleentoestel'
 }
-Start-OSDCloud @Params
+
+#Launch OSDCloud
+Write-Host "Starting OSDCloud" -ForegroundColor Green
+Write-Host "Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguage"
+Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguage
 
 # Waiting for shutdown
 For ($i = 30; $i -ge 0; $i--) {
