@@ -1,17 +1,27 @@
-# Language
-Set-Culture -CultureInfo "nl-NL"
-Set-WinUILanguageOverride -Language "nl-NL"
-# Regional settings
-Set-WinHomeLocation -GeoID 227
-# Keyboard
-Set-WinDefaultInputMethodOverride "0413:00000413"
+$WindowsVersion = '24H2'
+# OSDCloud Params
+$Params = @{
+  OSVersion = "Windows 11"
+  OSBuild = "$WindowsVersion"
+  OSEdition = "Enterprise"
+  OSLanguage = "nl-nl"
+  OSActivation = "Volume"
+}
+# OSDCloud Vars
+$Global:MyOSDCloud = [ordered]@{
+  ClearDiskConfirm = [bool]$false
+  Debug = [bool]$true
+  Restart = [bool]$false
+  SplashScreen = [bool]$true
+  BuildName = [string]'VDAB CC Uitleentoestel'
+}
 # Waiting for 30 secs
 For ($i = 30; $i -ge 0; $i--) {
   Write-Host "Shutdown computer in $i seconds ..."
   Start-Sleep -Seconds 1
 }
 
-Start-OSDCloud -ZTI -OSName 'Windows 11 24H2 x64' -OSLanguage nl-nl -OSEdition Enterprise -OSActivation Volume
+Start-OSDCloud @Params
 
 # Waiting for shutdown
 For ($i = 30; $i -ge 0; $i--) {
