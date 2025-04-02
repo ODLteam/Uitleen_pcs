@@ -15,12 +15,6 @@ $Global:MyOSDCloud = [ordered]@{
   SplashScreen = [bool]$true
   BuildName = [string]'VDAB CC Uitleentoestel'
 }
-# Waiting for 30 secs
-For ($i = 30; $i -ge 0; $i--) {
-  Write-Host "Shutdown computer in $i seconds ..."
-  Start-Sleep -Seconds 1
-}
-
 Start-OSDCloud @Params
 
 # Waiting for shutdown
